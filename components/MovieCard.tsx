@@ -1,30 +1,11 @@
 import star from '@/assets/icons/star.png';
+import { Movie } from '@/interfaces/movie';
 import { Link } from 'expo-router';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
-
-interface Movie {
-  id: number;
-  title: string;
-  poster_path: string;
-  vote_average: number;
-  release_date: string;
-}
 
 const MovieCard = ({ movie }: { movie: Movie }) => {
   const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
   const movieTitle = `${movie.title}`
-
-//   return (
-//     <View>
-//       <Image source={{ uri: posterUrl }} style={{ width: 100, height: 150 }} />
-//         <Text style ={{
-//         textAlign: 'center',
-//         fontSize: 10,
-//         width: 100
-//         }}>{movieTitle}</Text>
-//     </View>
-//   );
-// };
   return (
     <View>
      <Link href={`/movies/${movie.id}` as any} asChild>

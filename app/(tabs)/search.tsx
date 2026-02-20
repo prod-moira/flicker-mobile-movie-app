@@ -59,7 +59,7 @@ const { data: movies, loading, error, refetch } = useFetch(
           marginBottom: 10,
           marginTop: 2
         }}
-        scrollEnabled={false}
+        scrollEnabled={true}
       />
     </View>
   );
