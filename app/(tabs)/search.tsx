@@ -1,35 +1,10 @@
 import MovieCard from '@/components/MovieCard';
-import { fetchMovies } from '@/services/api';
-import useFetch from '@/services/useFetch';
-import React, { useEffect, useState } from 'react';
+import useMovieSearch from '@/hooks/useMovieSearch';
+import React from 'react';
 import { FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
 
 const Search = () => {
-const [ search, setSearch ] = useState('');
-const { data: movies, loading, error, refetch } = useFetch(
-  () => fetchMovies({ query: search }),
-  true,        // autoFetch
-  [search]     // re-runs when search changes
-);
-
-  const styles = StyleSheet.create({ 
-    searchBar: 
-    { height: 35, 
-      borderWidth: 1, 
-      borderColor: '#ccc', 
-      borderRadius: 8, 
-      paddingHorizontal: 10, 
-      backgroundColor: 'white', 
-      marginBottom: 15}, 
-    });
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (search.trim()) refetch();
-    }, 500);
-
-    return () => clearTimeout(timeout);
-  }, [search]);
+  const { search, setSearch, movies, loading, error } = useMovieSearch();
 
   return (
     <View style={{ padding: 20, backgroundColor: '#ededed'}}>
@@ -52,18 +27,28 @@ const { data: movies, loading, error, refetch } = useFetch(
           <MovieCard movie={item}/>
         )}
         numColumns={3}
-        columnWrapperStyle = {{
+        columnWrapperStyle={{
           justifyContent: 'flex-start',
           gap: 20,
           paddingRight: 5,
           marginBottom: 10,
           marginTop: 2
         }}
-        scrollEnabled={true}
       />
     </View>
   );
-
 };
+
+const styles = StyleSheet.create({
+  searchBar: {
+    height: 35,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    backgroundColor: 'white',
+    marginBottom: 15
+  },
+});
 
 export default Search;

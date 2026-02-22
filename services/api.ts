@@ -45,16 +45,33 @@ export const fetchMovieDetails = async (movieId: string): Promise<MovieDetails> 
             throw error;  }
 }
 
-// const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
-// const options = {
-//   method: 'GET',
-//   headers: {
-//     accept: 'application/json',
-//     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3Mjg4OTc5NWE1ZTc2YjAyZmViYTE2MTZmNmYyYTY1NSIsIm5iZiI6MTc3MTIzNjE5NC44NDUsInN1YiI6IjY5OTJlYjYyMDAxOGYzNjM1MjFhZjIyMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.b7HYqidfyQVIaGZ0vn_77P78cMN8ShYjz52eJyV0X-c'
-//   }
-// };
+export const fetchIndexMovies = async () => {
+    const popularMoviesEndpoint = `${TMDB_CONFIG.BASE_URL}/movie/popular`;
+    const topRatedMoviesEndpoint = `${TMDB_CONFIG.BASE_URL}/movie/top_rated`;
+    const upcomingMoviesEndpoint = `${TMDB_CONFIG.BASE_URL}/movie/upcoming`;
 
-// fetch(url, options)
-//   .then(res => res.json())
-//   .then(json => console.log(json))
-//   .catch(err => console.error(err));
+
+    const [popularRes, upcomingRes, topRatedRes] = await Promise.all([
+    fetch(popularMoviesEndpoint, { method: 'GET', headers: TMDB_CONFIG.headers }),
+    fetch(upcomingMoviesEndpoint, { method: 'GET', headers: TMDB_CONFIG.headers }),
+    fetch(topRatedMoviesEndpoint, { method: 'GET', headers: TMDB_CONFIG.headers }),
+    ]);
+
+    if(!popularRes.ok){
+        throw new Error(`Failed to fetch popular movies`);
+    } else if(!upcomingRes.ok){
+        throw new Error(`Failed to fetch upcoming movies`);
+    } else if(!topRatedRes.ok){
+        throw new Error(`Failed to fetch top rated movies`);
+    }
+
+    const popularData = await popularRes.json();
+    const upcomingData = await upcomingRes.json();
+    const topRatedData = await topRatedRes.json();
+
+    return {
+    popular: popularData.results,
+    upcoming: upcomingData.results,
+    topRated: topRatedData.results,
+    };
+}
