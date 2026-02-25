@@ -1,8 +1,9 @@
 import MovieCarousel from '@/components/MovieCarousel';
 import { fetchIndexMovies } from '@/services/api';
+import globalStyles from '@/styles/globalStyles';
 import { Text } from '@react-navigation/elements';
 import { useEffect, useState } from "react";
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 
 const Index = () => {
   const [movies, setMovies] = useState<{
@@ -32,11 +33,21 @@ const Index = () => {
   if (error) return <Text>Error: {error}</Text>;
 
   return (
-    <ScrollView style={{ padding: 16 }}>
-      <MovieCarousel title="Popular Movies" movies={movies!.popular} />
-      <MovieCarousel title="Upcoming Movies" movies={movies!.upcoming} />
-      <MovieCarousel title="Top Rated Movies" movies={movies!.topRated} />
-    </ScrollView>
+  <>
+  <View style={globalStyles.container}>
+        <Text style ={{
+        fontFamily: "monospace",
+        fontSize: 30,
+        fontWeight: 700,
+        textAlign: "center"
+      }}>Flicker</Text>
+      <ScrollView style={{ padding: 16 }}>
+        <MovieCarousel title="Popular Movies" movies={movies!.popular} />
+        <MovieCarousel title="Upcoming Movies" movies={movies!.upcoming} />
+        <MovieCarousel title="Top Rated Movies" movies={movies!.topRated} />
+      </ScrollView>
+  </View>
+  </>
   );
 };
 

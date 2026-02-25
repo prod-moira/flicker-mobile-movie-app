@@ -1,17 +1,18 @@
 import MovieCard from '@/components/MovieCard';
 import useMovieSearch from '@/hooks/useMovieSearch';
+import globalStyles from '@/styles/globalStyles';
 import React from 'react';
-import { FlatList, StyleSheet, Text, TextInput, View } from 'react-native';
+import { FlatList, Text, TextInput, View } from 'react-native';
 
 const Search = () => {
   const { search, setSearch, movies, loading, error } = useMovieSearch();
 
   return (
-    <View style={{ padding: 20, backgroundColor: '#ededed'}}>
+    <View style={globalStyles.container}>
       <Text style={{ fontSize: 24, marginBottom: 10 }}>Search</Text>
 
       <TextInput
-        style={styles.searchBar}
+        style={globalStyles.searchBar}
         placeholder="Search..."
         value={search}
         onChangeText={setSearch}
@@ -38,17 +39,5 @@ const Search = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  searchBar: {
-    height: 35,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 8,
-    paddingHorizontal: 10,
-    backgroundColor: 'white',
-    marginBottom: 15
-  },
-});
 
 export default Search;

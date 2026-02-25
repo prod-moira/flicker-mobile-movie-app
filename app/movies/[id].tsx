@@ -1,6 +1,7 @@
 import MovieDetails from '@/components/MovieDetails';
 import { fetchMovieDetails } from '@/services/api';
 import useFetch from '@/services/useFetch';
+import globalStyles from '@/styles/globalStyles';
 import { useLocalSearchParams } from 'expo-router';
 import { ActivityIndicator, Text, View } from 'react-native';
 
@@ -15,7 +16,7 @@ export default function MoviePage() {
   if (error) return <Text>Error: {error.message}</Text>;
 
   return (
-    <View>
+    <View style={globalStyles.container}>
       <MovieDetails movie={movie} />
     </View>
   );

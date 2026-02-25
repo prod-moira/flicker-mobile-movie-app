@@ -1,3 +1,4 @@
+import globalStyles from '@/styles/globalStyles';
 import { Dimensions, FlatList, Image, Text, View } from 'react-native';
 
 const { width } = Dimensions.get('window');
@@ -7,7 +8,7 @@ const IMAGE_HEIGHT = IMAGE_WIDTH * 1.5;
 const MovieCarousel = ({ title, movies }: { title: string; movies: any[] }) => {
   return (
     <View style={{ marginVertical: 16 }}>
-      <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 8 }}>{title}</Text>
+      <Text style={globalStyles.heading}>{title}</Text>
       <FlatList
         data={movies.slice(0, 10)} // Top 10
         horizontal
@@ -19,7 +20,7 @@ const MovieCarousel = ({ title, movies }: { title: string; movies: any[] }) => {
               source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }}
               style={{ width: IMAGE_WIDTH, height: IMAGE_HEIGHT, borderRadius: 3 }}
             />
-            <Text style={{ width: IMAGE_WIDTH, marginTop: 4, textAlign: 'center' }}>
+            <Text style={globalStyles.carouselText}>
               {item.title}
             </Text>
           </View>
