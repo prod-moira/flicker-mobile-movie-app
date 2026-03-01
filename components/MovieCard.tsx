@@ -1,5 +1,6 @@
 import star from '@/assets/icons/star.png';
 import { Movie } from '@/interfaces/movie';
+import globalStyles from '@/styles/globalStyles';
 import { Link } from 'expo-router';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 
@@ -22,23 +23,15 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
         <Text 
         numberOfLines={1}
         
-        style ={{
-        textAlign: 'left',
-        fontSize: 12,
-        width: 100,
-        color: 'white',
-        fontWeight: 500,
-        fontFamily: 'Arial',
-        marginTop: 3,
-        }}>{movieTitle}</Text>
+        style ={globalStyles.movieCardText}>{movieTitle}</Text>
 
         {/* Ratings */}
         <View style={{ display: 'flex', flexDirection: 'row'}}>
-            <Image source={star} style={{ width: 12, height: 12}} /> 
-            <Text style={{ fontSize: 10, color: "white" }}>{Math.round(movie.vote_average/2)}</Text>
+            <Image source={star} style={{ width: 15, height: 15}} /> 
+            <Text style={{ fontSize: 9, color: "white" }}>{Math.round(movie.vote_average/2)}</Text>
         </View>
 
-        <Text style={{ fontSize: 9, color: "white" }}>{movie.release_date?.split('-')[0]}</Text>
+        <Text style={{ marginTop: 2, fontSize: 7, color: "white" }}>{movie.release_date?.split('-')[0]}</Text>
 
      </TouchableOpacity>
      </Link>

@@ -35,13 +35,8 @@ const Index = () => {
   return (
   <>
   <View style={globalStyles.container}>
-        <Text style ={{
-        fontFamily: "monospace",
-        fontSize: 30,
-        fontWeight: 700,
-        textAlign: "center"
-      }}>Flicker</Text>
-      <ScrollView style={{ padding: 16 }}>
+        <Text style ={globalStyles.flicker}>flicker</Text>
+      <ScrollView style={{ padding: 12 }} showsVerticalScrollIndicator={false}>
         <MovieCarousel title="Popular Movies" movies={movies!.popular} />
         <MovieCarousel title="Upcoming Movies" movies={movies!.upcoming} />
         <MovieCarousel title="Top Rated Movies" movies={movies!.topRated} />

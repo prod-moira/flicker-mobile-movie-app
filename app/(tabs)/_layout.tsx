@@ -1,13 +1,20 @@
-import { Tabs } from 'expo-router'
-import React from 'react'
-import { Image, StyleSheet } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { useFonts } from '@expo-google-fonts/cormorant-garamond';
+import { DMSans_400Regular, DMSans_500Medium } from "@expo-google-fonts/dm-sans";
+import { Tabs } from 'expo-router';
+import React from 'react';
+import { Image, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const _layout = () => {
+    const [fontsLoaded] = useFonts({
+      DMSans_400Regular,
+      DMSans_500Medium,
+    });
+
     const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#121212', // change this to any color you want
+      backgroundColor: '#1b1b1b'
     },
   });
   
@@ -16,13 +23,16 @@ const _layout = () => {
         <Tabs
       screenOptions={{
         tabBarStyle: {
-          backgroundColor: '#181a41',
-          borderTopWidth: 0, // removes the default line
+          backgroundColor: '#610000',
+          borderTopWidth: 0,
+          elevation: 0,        
+          shadowOpacity: 0,   
+            borderTopColor: 'transparent',
         },
         tabBarActiveTintColor: 'white',
-        tabBarInactiveTintColor: 'gray',
+        tabBarInactiveTintColor: '#bfbfbf',
         tabBarLabelStyle: {
-          fontFamily: 'Segoe UI', // replace with your custom font name
+          fontFamily: 'DMSans_500Medium', // replace with your custom font name
           fontSize: 14,
         },
       }}

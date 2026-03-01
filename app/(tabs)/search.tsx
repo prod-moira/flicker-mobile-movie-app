@@ -9,13 +9,14 @@ const Search = () => {
 
   return (
     <View style={globalStyles.container}>
-      <Text style={{ fontSize: 24, marginBottom: 10 }}>Search</Text>
+      <Text style={globalStyles.flicker}>flicker</Text>
 
       <TextInput
         style={globalStyles.searchBar}
         placeholder="Search..."
         value={search}
         onChangeText={setSearch}
+        placeholderTextColor="#888"
       />
 
       { loading && <Text>Loading...</Text> }
@@ -28,13 +29,8 @@ const Search = () => {
           <MovieCard movie={item}/>
         )}
         numColumns={3}
-        columnWrapperStyle={{
-          justifyContent: 'flex-start',
-          gap: 20,
-          paddingRight: 5,
-          marginBottom: 10,
-          marginTop: 2
-        }}
+        columnWrapperStyle={globalStyles.searchMoviesWrap}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );

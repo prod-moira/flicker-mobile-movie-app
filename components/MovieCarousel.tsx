@@ -15,12 +15,12 @@ const MovieCarousel = ({ title, movies }: { title: string; movies: any[] }) => {
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
-          <View style={{ marginRight: 12 }}>
+          <View style={{ marginRight: 7 }}>
             <Image
               source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }}
               style={{ width: IMAGE_WIDTH, height: IMAGE_HEIGHT, borderRadius: 3 }}
             />
-            <Text style={globalStyles.carouselText}>
+            <Text style={globalStyles.carouselText} numberOfLines={1}>
               {item.title}
             </Text>
           </View>
