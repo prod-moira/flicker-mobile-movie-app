@@ -86,6 +86,51 @@ searchMoviesWrap: {
     marginBottom: 10,
     marginTop: 2
 },
+
+movieDetailsContainer: {
+  flex: 1,
+  backgroundColor: '#1b1b1b',
+},
+movieDetailsPoster: {
+  width: '100%',
+  height: 500,
+},
+movieDetailsContent: {
+  padding: 16,
+  gap: 8,
+},
+movieDetailsTitle: {
+  color: 'white',
+  fontSize: 24,
+  fontFamily: 'DMSans_500Medium',
+},
+movieDetailsMeta: {
+  flexDirection: 'row',
+  gap: 12,
+  alignItems: 'center',
+},
+movieDetailsMetaText: {
+  color: '#bfbfbf',
+  fontSize: 12,
+},
+movieDetailsOverview: {
+  color: '#bfbfbf',
+  fontSize: 13,
+  lineHeight: 20,
+  marginTop: 8,
+},
+movieDetailsButton: {
+  backgroundColor: '#610000',
+  padding: 14,
+  borderRadius: 8,
+  alignItems: 'center',
+  marginTop: 16,
+},
+movieDetailsButtonText: {
+  color: 'white',
+  fontFamily: 'DMSans_500Medium',
+  fontSize: 14,
+},
 });
 
 export default globalStyles;
