@@ -80,12 +80,12 @@ searchBar: {
 },
 
 searchMoviesWrap: {
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     gap: 20,
-    paddingRight: 5,
+    paddingHorizontal: 10, // add this to push everything from the left edge
     marginBottom: 10,
     marginTop: 2
-}
+},
 });
 
 export default globalStyles;

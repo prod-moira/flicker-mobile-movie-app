@@ -31,16 +31,15 @@ const Search = () => {
       { loading && <Text>Loading...</Text> }
       { error && <Text>Error: {error.message}</Text> }
 
-      <FlatList
-        data={movies}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <MovieCard movie={item}/>
-        )}
-        numColumns={3}
-        columnWrapperStyle={globalStyles.searchMoviesWrap}
-        showsVerticalScrollIndicator={false}
-      />
+    <FlatList
+      data={movies}
+      keyExtractor={(item) => item.id.toString()}
+      renderItem={({ item }) => <MovieCard movie={item}/>}
+      numColumns={3}
+      columnWrapperStyle={globalStyles.searchMoviesWrap}
+      // contentContainerStyle={{ alignItems: 'center' }}
+      showsVerticalScrollIndicator={false}
+    />
     </View>
     </>
   );

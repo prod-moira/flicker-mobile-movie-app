@@ -14,6 +14,9 @@ export default function useMovieSearch() {
     const timeout = setTimeout(() => {
       if (search.trim()) {
         refetch();
+      } else {
+        refetch();
+        // reset() -> to clear the search page entirely
       }
     }, 500);
 
