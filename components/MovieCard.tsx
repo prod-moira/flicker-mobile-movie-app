@@ -26,12 +26,21 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
         style ={globalStyles.movieCardText}>{movieTitle}</Text>
 
         {/* Ratings */}
-        <View style={{ display: 'flex', flexDirection: 'row'}}>
-            <Image source={star} style={{ width: 15, height: 15}} /> 
-            <Text style={{ fontSize: 9, color: "white" }}>{Math.round(movie.vote_average/2)}</Text>
-        </View>
 
-        <Text style={{ marginTop: 2, fontSize: 7, color: "white" }}>{movie.release_date?.split('-')[0]}</Text>
+      <View style={{ flexDirection: 'row', gap: 50 }}>
+        <Text style={{ marginTop: 2, fontSize: 7, color: "white" }}>
+          {movie.release_date?.split('-')[0]}
+        </Text>
+
+          {movie.vote_count > 0 && (
+            <View style={{ flexDirection: 'row' }}>
+              <Image source={star} style={{ width: 12, height: 12 }} />
+              <Text style={{ fontSize: 8, color: "white" }}>
+                {Math.round(movie.vote_average / 2)}
+              </Text>
+            </View>
+          )}
+      </View>
 
      </TouchableOpacity>
      </Link>

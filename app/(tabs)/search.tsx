@@ -37,7 +37,6 @@ const Search = () => {
       renderItem={({ item }) => <MovieCard movie={item}/>}
       numColumns={3}
       columnWrapperStyle={globalStyles.searchMoviesWrap}
-      // contentContainerStyle={{ alignItems: 'center' }}
       showsVerticalScrollIndicator={false}
     />
     </View>
