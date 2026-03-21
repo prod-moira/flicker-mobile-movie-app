@@ -8,7 +8,7 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
   const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
   const movieTitle = `${movie.title}`
   return (
-    <View>
+    <>
      <Link href={`/movies/${movie.id}` as any} asChild>
      <TouchableOpacity>
         <Image source={{
@@ -35,7 +35,7 @@ const MovieCard = ({ movie }: { movie: Movie }) => {
 
      </TouchableOpacity>
      </Link>
-    </View>
+    </>
   )}
 
 

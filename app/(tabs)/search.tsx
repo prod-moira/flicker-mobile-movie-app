@@ -1,15 +1,24 @@
+import logo from '@/assets/icons/logo.png';
 import MovieCard from '@/components/MovieCard';
 import useMovieSearch from '@/hooks/useMovieSearch';
 import globalStyles from '@/styles/globalStyles';
 import React from 'react';
-import { FlatList, Text, TextInput, View } from 'react-native';
+import { FlatList, Image, Text, TextInput, View } from 'react-native';
 
 const Search = () => {
   const { search, setSearch, movies, loading, error } = useMovieSearch();
 
   return (
-    <View style={globalStyles.container}>
+    <>
+    <View style={globalStyles.flickerContainer}>
+      <Image 
+        source={logo}
+        style={{ width: 24, height: 24 }} 
+        resizeMode="contain"
+      />
       <Text style={globalStyles.flicker}>flicker</Text>
+    </View>
+    <View style={globalStyles.container}>
 
       <TextInput
         style={globalStyles.searchBar}
@@ -33,6 +42,7 @@ const Search = () => {
         showsVerticalScrollIndicator={false}
       />
     </View>
+    </>
   );
 };
 

@@ -1,22 +1,35 @@
 import { StyleSheet } from 'react-native';
 
-
 const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#1b1b1b', // off-white like the inspo
-    padding: 10,
+    paddingHorizontal: 10,
   },
 
+flickerContainer: {
+  backgroundColor: '#1b1b1b', 
+  paddingVertical: 12, 
+  alignItems: 'center',
+  elevation: 8,
+  shadowColor: '#000',
+  shadowOffset: { width: 0, height: 4 },
+  shadowOpacity: 1,
+  shadowRadius: 4,
+  flexDirection: 'row',
+  gap: 5,
+  justifyContent: 'center'
+},
+
 flicker: {
-    fontSize: 32,
+    fontSize: 30,
     color: '#f3f3f3',
-    fontWeight: '300',
-    letterSpacing: 3,
+    fontWeight: '500',
+    letterSpacing: 0,
     // textTransform: 'uppercase',
     textAlign: 'center',
     // marginBottom: 20,
-    fontFamily: 'CormorantGaramond_300Light', // or 400Regular
+    fontFamily: 'DMSans_500Regular', // or 400Regular
 },
 heading: {
     fontSize: 18,
@@ -52,9 +65,9 @@ movieCardText: {
     marginTop: 3,
 },
 searchBar: {
-    height: 40,
+    height: 30,
     minHeight: 40,
-    maxHeight: 50,
+    maxHeight: 30,
     borderWidth: 1,
     borderColor: '#444',
     borderRadius: 10,

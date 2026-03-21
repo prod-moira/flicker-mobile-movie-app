@@ -1,10 +1,10 @@
+import logo from '@/assets/icons/logo.png';
 import MovieCarousel from '@/components/MovieCarousel';
 import { fetchIndexMovies } from '@/services/api';
 import globalStyles from '@/styles/globalStyles';
 import { Text } from '@react-navigation/elements';
 import { useEffect, useState } from "react";
-import { ScrollView, View } from 'react-native';
-
+import { Image, ScrollView, View } from 'react-native';
 const Index = () => {
   const [movies, setMovies] = useState<{
     popular: any[];
@@ -34,8 +34,15 @@ const Index = () => {
 
   return (
   <>
+  <View style={globalStyles.flickerContainer}>
+    <Image 
+      source={logo}
+      style={{ width: 24, height: 24 }} 
+      resizeMode="contain"
+    />
+    <Text style={globalStyles.flicker}>flicker</Text>
+  </View>
   <View style={globalStyles.container}>
-        <Text style ={globalStyles.flicker}>flicker</Text>
       <ScrollView style={{ padding: 12 }} showsVerticalScrollIndicator={false}>
         <MovieCarousel title="Popular Movies" movies={movies!.popular} />
         <MovieCarousel title="Upcoming Movies" movies={movies!.upcoming} />

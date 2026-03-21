@@ -19,15 +19,14 @@ const _layout = () => {
   });
   
   return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['top']}>
         <Tabs
       screenOptions={{
         tabBarStyle: {
-          backgroundColor: '#610000',
-          borderTopWidth: 0,
-          elevation: 0,        
-          shadowOpacity: 0,   
-            borderTopColor: 'transparent',
+          backgroundColor: '#610000',      
+          shadowOpacity: 0.5,   
+          borderTopColor: 'transparent',
+          height: 90,
         },
         tabBarActiveTintColor: 'white',
         tabBarInactiveTintColor: '#bfbfbf',
