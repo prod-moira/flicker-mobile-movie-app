@@ -87,6 +87,16 @@ searchMoviesWrap: {
     marginTop: 2
 },
 
+loadingAndErrorText: {
+    textAlign: 'center', 
+    color: '#868686', 
+    padding: 1,
+    fontFamily: 'DMSans_500Medium',
+    fontStyle: 'italic'
+},
+
+// MovieDetails
+
 movieDetailsContainer: {
   flex: 1,
   backgroundColor: '#1b1b1b',
@@ -94,6 +104,7 @@ movieDetailsContainer: {
 movieDetailsPoster: {
   width: '100%',
   height: 500,
+  padding: 20
 },
 movieDetailsContent: {
   padding: 16,
@@ -108,6 +119,7 @@ movieDetailsMeta: {
   flexDirection: 'row',
   gap: 12,
   alignItems: 'center',
+  justifyContent: 'space-between'
 },
 movieDetailsMetaText: {
   color: '#bfbfbf',
@@ -131,6 +143,7 @@ movieDetailsButtonText: {
   fontFamily: 'DMSans_500Medium',
   fontSize: 14,
 },
+
 });
 
 export default globalStyles;

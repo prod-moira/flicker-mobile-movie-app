@@ -19,17 +19,22 @@ return (
     <Text style={globalStyles.movieDetailsTitle}>{movie.title}</Text>
 
     <View style={globalStyles.movieDetailsMeta}>
-      <Text style={globalStyles.movieDetailsMetaText}>
-        {movie.release_date?.split('-')[0]}
-      </Text>
-      <Image source={star} style={{ width: 12, height: 12 }} />
-      <Text style={globalStyles.movieDetailsMetaText}>
-        {Math.round(movie.vote_average / 2)} / 5
-      </Text>
-      {/* {movie.adult && (
-        <Image source={adult} style={{ width: 20, height: 20 }} resizeMode="contain" />
-      )} */}
+        <Text style={globalStyles.movieDetailsMetaText}>
+          {movie.release_date?.split('-')[0]}
+        </Text>
+
+      {movie.vote_count > 0 && (
+        <View style={{ flexDirection: 'row', gap: 2 }}>
+          {Array.from({ length: Math.round(movie.vote_average / 2) }).map((_, i) => (
+            <Image key={i} source={star} style={{ width: 17, height: 17 }} />
+          ))}
+          {/* <Text style={globalStyles.movieDetailsMetaText}>
+            {Math.round(movie.vote_average / 2)}
+          </Text> */}
+        </View>
+      )}
     </View>
+
 
     <Text style={globalStyles.movieDetailsOverview}>{movie.overview}</Text>
 

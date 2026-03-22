@@ -28,8 +28,8 @@ const Search = () => {
         placeholderTextColor="#888"
       />
 
-      { loading && <Text>Loading...</Text> }
-      { error && <Text>Error: {error.message}</Text> }
+      { loading && <Text style={globalStyles.loadingAndErrorText}>Loading...</Text> }
+      { error && <Text style={globalStyles.loadingAndErrorText}>Error: {error.message}</Text> }
 
     <FlatList
       data={movies}
